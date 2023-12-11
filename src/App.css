@@ -1,38 +1,605 @@
-.App {
-  text-align: center;
+body{
+    background-color: black !important;
+    color: white !important;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.nav-item {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.movie-slide{
+    margin-left: 5px;
+    margin-top: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+.movie-carousel{
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    font-size: 25px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-style: italic;
+
 }
 
-.App-link {
-  color: #61dafb;
+.banner{
+    height: 400px;
+    display: flex;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.banner::before{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 400px;
+    content: '';
+    background: linear-gradient(to right, black, transparent);
+}
+
+.banner-info{
+    width:30%;
+    margin-left: 60px;
+    z-index: 1;
+}
+
+.card-main{
+    margin: 0 0 0 19%;
+    position: relative;
+    
+}
+
+.card{
+    display: block;
+    filter: drop-shadow(10px 6px 6px #4a0101); 
+    width: 100%;
+    height: auto;
+
+}
+
+.overlay{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: .5s ease;
+    color: aliceblue;
+}
+
+
+.card-main:hover .overlay{
+    height: 100%;
+    cursor: pointer;
+
+}
+
+
+.grade-show-area{
+    margin: 10px;
+    font-size: 14px;
+
+}
+
+.overlay-title{
+    text-align: center;
+    margin: 10px;
+    font-size: 30px;
+}
+
+.overlay-badge{
+    text-align: center;
+    margin: 10px;
+    font-size: 14px;
+}
+
+.overlay-grade{
+    text-align: center;
+    margin: 10px;
+    font-size: 14px;
+
+}
+
+.overlay-grade span{
+    margin: 10px;
+}
+
+.card_recommend{
+    cursor: pointer;
+    background-size: 100% 100%;
+    width: 45%;
+    height: 45%;
+    margin: 10px;
+}
+
+.card_recommend_no_img{
+    cursor: pointer;
+    background: url("./images/redbutton.png");
+    width: 45%;
+    height: 45%;
+    margin: 10px;
+}
+
+.card_recommend:hover .overlay-recommend{
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+}
+
+.overlay-recommend {
+    opacity: 0;
+    background: rgba(43, 41, 41, 0.9);
+    height: 200%; 
+}
+
+
+.recommend_movie_list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: auto;
+    margin-left: 30px;
+}
+
+.detail-box2{
+    display: flex;
+    height: 500px;
+    padding: 5vh;
+    justify-content: center;
+}
+.detail-box3{
+    border: solid salmon 2xp;
+    padding: 5vh;
+    border: 1px;
+
+}
+.head-info{
+    padding: 5px;
+}
+
+.summary{
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid white;
+    border-left-style: none;
+    border-right-style: none;
+    font-family: "Times New Roman",Garamond,"Courier New";
+    font-style: italic;
+    font-size: 17px;
+    text-align: justify;
+    height: auto;
+}
+.summary-no-auto{
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid white;
+    border-left-style: none;
+    border-right-style: none;
+    font-family: "Times New Roman",Garamond,"Courier New";
+    font-style: italic;
+    font-size: 17px;
+    text-align: justify;
+    height: 200px;
+}
+
+.more-info{
+    padding-top: 4vh;
+}
+
+.view-retailer{
+    padding-top: 4vh;
+}
+
+.movie-genre-badge{
+    margin-right: 5px;
+    padding: 10px;
+}
+
+.badge-area {
+    padding: 10px;
+}
+
+.movie-detail-badge{
+    margin-right: 10px;
+    padding: 10px;
+}
+
+.review-row{
+    padding-bottom: 10vh;
+}
+
+.review-section{
+    padding: 1vh;
+    border: solid red 1px;
+}
+
+.review-section div{
+    padding: 1vh;
+}
+
+.review-box{
+    border: solid white 1px;
+    border-left-style: none;
+    border-right-style: none;
+    padding: 10px;
+    margin-left: 10px;
+    margin-top: 20px;
+    font-family: "Copperplate Gothic";
+}
+
+.review_author{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.review_message{
+    border: solid white 1px;
+    border-left-style: none;
+    border-right-style: none;
+    border-top-style: none;
+    margin-left: 10px;
+    text-align: justify;
+    font-family: Candara, Cambria, 'Times New Roman', serif,"Courier New";
+}
+
+.page_move_area{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.view-retailer{
+    cursor: pointer;
+}
+
+.modal-window{
+    background-color: black !important;
+}
+
+
+.movie-info-section Col{
+    display: flex;
+    justify-content: center;
+}
+
+
+.movie-co1{
+    border: solid red 1px;
+}
+
+.movie-co2{
+    border: solid red 1px;
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+}
+
+.movie-co3{
+    background: radial-gradient(
+        rgba(113,0,0,1) 0%,
+        rgba(0,0,0,0) 100%
+    );
+    border: solid red 1px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px;
+
+
+}
+
+.movie-co5{
+    border: solid red 1px;
+}
+
+.movie-intro-section{
+    width: 250px;
+    height: 350px;
+    border: solid plum 1px;
+    border-radius: 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 10px;
+    padding: 5px;
+    text-align: justify; 
+    cursor: pointer;
+
+}
+
+.movie-intro-headline{
+    display: flex;
+}
+
+.movie-intro-headline-detail{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.movie-intro-headline-detail div{
+    font-size: 12px;
+}
+
+
+.movie-intro-headline div{
+    padding: 10px;
+}
+
+.movie-intro-section h5{
+    padding: 10px;
+    text-align: center;
+    font-style: italic;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 18px;
+}
+
+.movie-intro-release-date{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: goldenrod;
+    font-size: 11px;
+    font-style: italic;
+    margin-bottom: 10px;
+    margin-left: 5px;
+}
+
+
+.movie-intro-badge{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.movie-intro-popular{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 11px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.movie-intro-popular span{
+    padding-right: 10px;
+}
+
+.movie-intro-overview{
+    font-size: 11px;
+    margin-top: 20px;
+}
+
+
+.movie-co5{
+    cursor: pointer; 
+    display: flex;
+    justify-content: center;  
+}
+
+.pagination-area{
+    border: solid 1px white;
+}
+
+.pagination-co1{
+    border: solid white 1px;
+    display: flex;
+    justify-content: center;
+}
+
+.page-button-img{
+    cursor: pointer;
+}
+
+.circle-button-area{
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.circle-img{
+    background: url("./images/redbutton.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width : 30px;
+    height : 30px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px; 
+    cursor: pointer;
+    font-size: 14px;
+    float: left;
+}
+
+.circle-img-on-page{
+    background: url("./images/redbutton.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width : 30px;
+    height : 30px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px; 
+    cursor: pointer;
+    font-size: 14px;
+    float: left;
+    mix-blend-mode:luminosity;
+}
+
+.circle-img:hover{
+    border: solid 2px black;
+}
+
+.genre-img{
+    background: url("./images/genreButton2.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width : auto;
+    height : 30px;
+    border-radius: 20%;
+    text-align: center;
+    line-height: 30px; 
+    cursor: pointer;
+    font-size: 14px;
+    float: left;
+    margin: 2px;
+    
+}
+
+.genre-img:hover{
+    border: solid 2px black;
+    mix-blend-mode:hard-light;
+}
+
+.sorry-no-videos{
+    margin-top: 15px;
+}
+
+.dropdown-area{
+    margin-top: 25px;
+}
+
+.slider {
+    width: 100%;
+    height: 2px;
+    background-color: #f70404;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.slider .thumb {
+    width: 13px;
+    height: 12px;
+    cursor: grab;
+    background: #f30a0a;
+    border-radius: 50%;
+    border: 2px solid #110300;
+    top: -5px;
+}
+
+.year-value{
+    display: flex;
+    margin-top: 20px;
+    font-weight: 300;
+    color: rgb(255, 254, 254);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 17px;
+    justify-content: center;
+    white-space: pre-wrap;
+}
+
+.year-from-to{
+    display: flex;
+    margin-top: 10px;
+    font-weight: 400;
+    color: rgb(252, 250, 249);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 15px;
+    justify-content: center;
+    white-space: pre-wrap; 
+}
+
+.year-from-to span{
+    font-size: 11px;
+    margin-top: 5px;
+    color: rgb(190, 105, 26);
+}
+
+.horizontal-slider {
+    width: 100%;
+    max-width: 500px;
+    height: 50px;
+    border: 1px solid grey;
+}
+
+.select-title{
+    margin-top: 20px;
+    border: 1px solid white;
+    padding: 10px;
+    border-radius: 8px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.select-separator{
+    padding: 2px;
+    border-top: solid 1px white;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.select-separator div{
+    margin-top: 5px;
+    
+}
+
+.menu-item{
+    padding: 1px;
+}
+
+.menu-item:hover{
+    border: none;
+    background: rgba(171, 4, 4, 0.539);
+    cursor: pointer;
+    transition: .8s;
+    cursor: pointer;
+
+ }
+
+.select-separator div:hover{
+    background: rgb(90, 2, 2);
+    border-radius: 0%;
+    cursor: pointer;
+}
+
+.asc:hover, .desc:hover{
+    border: none;
+    background: rgba(113,0,0,1);
+    cursor: pointer;
+    transition: .8s;
+    
+}
+
+.filter-area{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border: 1px solid white;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.search-ico{
+    display: flex;
+    justify-content: center;
+
+}
+
+.search-ico:hover{
+    cursor: pointer;
+}
+
+.up-and-down{
+    float: right;
+    cursor: pointer;
+}
+
+.redChecked-img{
+    float:inline-end;
+}
+
+.genre-area{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border: 1px solid white;
+    padding: 10px;
+    border-radius: 8px;
 }
