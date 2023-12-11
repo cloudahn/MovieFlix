@@ -16,7 +16,7 @@ const MovieIntro = ({movie}) => {
   //여기서 부터 추가
   const navigate = useNavigate() 
   const showMovieDetail=()=>{
-     navigate(`/movies/${item.id}`,{state:{item}})
+     navigate(`/movies/${item.id}`,{state:item})
   }
 
   return (

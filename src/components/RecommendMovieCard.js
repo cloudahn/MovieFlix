@@ -10,7 +10,7 @@ const RecommendMovieCard = ({item}) => {
   const {genreList} = useSelector(state=>state.movie)
 
   const showMovieDetail=()=>{
-    navigate(`/movies/${item.id}`,{state:{item}})
+    navigate(`/movies/${item.id}`,{state:item})
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
@@ -23,14 +23,16 @@ const RecommendMovieCard = ({item}) => {
   return (
     <div className="card_recommend" style={{backgroundImage:test_text}} onClick={showMovieDetail}>
        <div className='overlay-recommend'>
+          <div className='overlay-recommend-title'>
           <h5>{item.title}</h5>
-          <div>{item.genre_ids.map((id)=> (
+          </div>
+          <div className='overlay-recommend-genre'>{item.genre_ids.map((id)=> (
               <Badge bg="success" className='movie-genre-badge'>{genreList.find((item) => item.id == id).name}</Badge>
             ))}</div>
-          <div>
-            <span>{item.vote_average}</span>
-            <span>{item.adult?"청불":"Under 18"}</span>
-          </div>
+          <div className='overlay-grade'>
+              <span>{item.vote_average}</span>
+              <span>{item.adult?"청불":"Under 18"}</span>
+            </div>
         </div>
     </div>
   )
