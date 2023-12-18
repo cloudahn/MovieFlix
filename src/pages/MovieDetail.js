@@ -9,6 +9,7 @@ import RecommendMovieCard from '../components/RecommendMovieCard'
 import VideoModal from '../components/VideoModal'
 import ClipLoader from "react-spinners/ClipLoader"
 import NoVideos from "../images/No-videos.png"
+import Favorite from '../images/Favorite.png'
 
 const MovieDetail = () => {
 
@@ -59,6 +60,9 @@ const MovieDetail = () => {
     <Container>
       <Row className='detail-row'>
         <Col className='detail-box1'>
+          <div className='favorite-area'>
+            <img src={Favorite} width={80} height={80} style={{"mix-blend-mode":"luminosity"}}/>
+          </div>
         </Col>
         <Col className='detail-box2' lg={4}><img src = {imageUrl} width={400} height={500}/></Col>
         <Col className='detail-box3' lg={4}>
@@ -101,7 +105,8 @@ const MovieDetail = () => {
             <div className='sorry-no-videos'><img src={NoVideos} width="70" height="70"/></div>}
           </div>
         </Col>
-        <Col className='detail-box4' ></Col>
+        <Col className='detail-box4' >
+        </Col>
       </Row>
       <Row className='review-row'>
         <Col className='test-row-box1'></Col>
