@@ -13,6 +13,7 @@ let initialState = {
     youtubeKey: [],
     filterMovies: [],
     currentMode:[],
+    favoriteList:[],
 }
 
 function movieReducer(state=initialState,action){
@@ -99,6 +100,16 @@ function movieReducer(state=initialState,action){
                 movieRecommend: payload.movieRecommend,
                 loading:false,
                 review:false,
+            }
+        
+        case "GET_FAVORITE_ADD_SUCCESS":
+            return {...state,
+                favoriteList: state.favoriteList.concat(payload.movieId)
+            }
+        
+        case "GET_FAVORITE_DELETE_SUCCESS":
+            return {...state,
+                favoriteList: state.favoriteList.filter((element) => element !== payload.movieId)
             }
 
         case "GET_MOVIES_FAILURE":

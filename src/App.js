@@ -5,7 +5,7 @@ import MovieDetail from './pages/MovieDetail';
 import Home from './pages/Home';
 import Movies from './pages/Movies';
 import Navigation from './components/Navigation';
-
+import Favorites from './pages/Favorites';
 
 //1. 3개의 페이지 필요 (홈페이지, movie 페이지, movie 디테일 페이지)
 //2. 홈페이지에서 배너를 볼 수 있다.
@@ -30,6 +30,7 @@ function App() {
         <Route path="/" element={<Home/>}/>
         <Route path="/movies" element={<Movies/>}/>
         <Route path="/movies/:id" element={<MovieDetail/>}/>
+        <Route path="/favorites" element={<Favorites/>}/>
       </Routes>
     </div>
   );

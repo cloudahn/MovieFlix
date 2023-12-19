@@ -76,8 +76,6 @@ function getYoutubeKey(id){
 }
 
 
-
-
 function getMovies(obj){
 
     let {mode, page, query} = obj
@@ -298,14 +296,6 @@ function getGenreMovies(obj){
     }
 }
 
-
-
-
-
-
-
-
-
 function getReview(){
     return (dispatch) => {
         dispatch({type:"GET_REVIEW"})
@@ -318,6 +308,29 @@ function getRecommendMovie(){
     }
 }
 
+function getFavoriteAdd(id){
+    return (dispatch) => {
+        dispatch({
+            type: "GET_FAVORITE_ADD_SUCCESS",
+            payload: { 
+                movieId:id
+            }
+        })
+    }
+}
+
+function getFavoriteDelete(id){
+    return (dispatch) => {
+        dispatch({
+            type: "GET_FAVORITE_DELETE_SUCCESS",
+            payload: { 
+                movieId:id
+            }
+        })
+    }
+}
+
+
 
 export const movieAction = {
     getMovies,
@@ -329,4 +342,6 @@ export const movieAction = {
     getSortedMovie,
     getFilteredMovies,
     getGenreMovies,
+    getFavoriteAdd,
+    getFavoriteDelete,
 }

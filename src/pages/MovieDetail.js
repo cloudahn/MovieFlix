@@ -22,14 +22,26 @@ const MovieDetail = () => {
   console.log("넘겨받은 item 값은 ?? ", item)
   
 
-  const {genreList,movieBudget,movieReviews,movieRecommend,movieYoutubeKey,review,recommendMovie,loading} = useSelector((state)=>state.movie)
+  const {genreList,movieBudget,movieReviews,movieRecommend,movieYoutubeKey,review,recommendMovie,loading, favoriteList} = useSelector((state)=>state.movie)
   const imageUrl = "http://www.themoviedb.org/t/p/w300_and_h450_bestv2/" + item.poster_path
   
   const [modalShow, setModalShow] = React.useState(false);
 
-   useEffect(() => {
+
+  useEffect(() => {
     dispatch(movieAction.getDetailInfo(id))
   },[id])
+
+  const addFavoriteMovie = (movieId) => {
+    dispatch(movieAction.getFavoriteAdd(movieId))
+    alert('This movie has been added into your Favorite Movie List!!')
+  }
+
+  const deleteFavoriteMovie = (movieId) => {
+    if(window.confirm('It will delete this movie from your Favorite Movie List.. \n Are you sure??')){
+      dispatch(movieAction.getFavoriteDelete(movieId))
+    }
+  }
 
   const showReview = () => {
     dispatch(movieAction.getReview())
@@ -47,6 +59,14 @@ const MovieDetail = () => {
     dispatch(movieAction.getDetailInfo(id,movieRecommend.total_pages-1))
   }
 
+  console.log("현재 등록 된 favoriteMovie 리스트 ??? ",favoriteList)
+  console.log("현재 가져온 쟝르 리스트 ??? ",genreList)
+
+  if(favoriteList.includes(id)){
+    console.log("찾음")
+  }
+
+  
   
   if (loading) {
     return <ClipLoader
@@ -61,7 +81,9 @@ const MovieDetail = () => {
       <Row className='detail-row'>
         <Col className='detail-box1'>
           <div className='favorite-area'>
-            <img src={Favorite} width={80} height={80} style={{"mix-blend-mode":"luminosity"}}/>
+            {favoriteList.includes(id)?<img src={Favorite} width={80} height={80} onClick={()=>{deleteFavoriteMovie(id)}}/>:
+            <img src={Favorite} width={80} height={80} style={{"mix-blend-mode":"luminosity"}} onClick={()=>{addFavoriteMovie(id)}}/>
+            }
           </div>
         </Col>
         <Col className='detail-box2' lg={4}><img src = {imageUrl} width={400} height={500}/></Col>
