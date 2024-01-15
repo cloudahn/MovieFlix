@@ -13,6 +13,8 @@ const MovieIntro = ({movie}) => {
   const imageThumbnailUrl = "http://www.themoviedb.org/t/p/w300_and_h450_bestv2/" + movie.poster_path
   const item = movie
 
+  console.log("MovieIntro로 넘어온 item 값은 ?? ", item)
+
   //여기서 부터 추가
   const navigate = useNavigate() 
   const showMovieDetail=()=>{

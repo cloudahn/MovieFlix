@@ -9,6 +9,20 @@ body{
     margin-right: 20px;
 }
 
+.nav-numbering{
+    background: url("./images/golden-circle.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width : 22px;
+    height : 22px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 22px; 
+    cursor: pointer;
+    font-size: 10px;
+    float: right;
+}
+
 .movie-slide{
     margin-left: 5px;
     margin-top: 10px;
@@ -92,7 +106,7 @@ body{
 .overlay-title{
     text-align: center;
     margin: 10px;
-    font-size: 30px;
+    font-size: 24px;
 }
 
 .overlay-badge{
@@ -583,7 +597,7 @@ body{
     cursor: pointer;
 }
 
-.asc:hover, .desc:hover{
+.asc:hover, .desc:hover, .add:hover, .delete:hover{
     border: none;
     background: rgba(113,0,0,1);
     cursor: pointer;
@@ -624,4 +638,58 @@ body{
     border: 1px solid white;
     padding: 10px;
     border-radius: 8px;
+}
+
+.favorite-co1, .favorite-co3{
+    border: 1px solid red;
+    padding: 20px;
+    margin-top: 10px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+
+}
+
+.favorite-co2{
+    border: 1px solid red;
+    padding: 20px;
+    margin-top: 10px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: flex;
+}
+
+.instruction-head-line-no-items{
+    margin-top: 20px;
+    margin-bottom: 40px;
+    font-size: 24px;
+    font-style: italic;
+    color: #f70404;
+    text-align: center;
+}
+
+
+.instruction-head-line{
+    margin-top: 20px;
+    margin-bottom: 40px;
+    font-size: 20px;
+    font-style: italic;
+}
+
+.instruction-head-line div{
+    margin-top: 30px;
+    font-size: 15px;
+    font-style: normal;
+}
+
+.text-yellow{
+    color: yellow;
+    font-size: 12;
+    font-weight: 200;
+}
+
+.text-red{
+    color: red;
+    font-size: 12;
+    font-weight: 200;
 }

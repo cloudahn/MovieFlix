@@ -104,12 +104,12 @@ function movieReducer(state=initialState,action){
         
         case "GET_FAVORITE_ADD_SUCCESS":
             return {...state,
-                favoriteList: state.favoriteList.concat(payload.movieId)
+                favoriteList: state.favoriteList.concat(payload.favoriteObj)
             }
         
         case "GET_FAVORITE_DELETE_SUCCESS":
             return {...state,
-                favoriteList: state.favoriteList.filter((element) => element !== payload.movieId)
+                favoriteList: state.favoriteList.filter((element) => element.id !== payload.movieId)
             }
 
         case "GET_MOVIES_FAILURE":

@@ -2,8 +2,13 @@ import React , {useState} from 'react'
 import {Navbar, Container, Form, Button, Nav, NavDropdown, FormControl} from "react-bootstrap"
 import {Link} from "react-router-dom"
 import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 const Navigation = () => {
+
+  const {favoriteList} = useSelector((state)=>state.movie)
+  
+  console.log("Nav에서 가져온 favoriteList의 길이는???? ",favoriteList)
 
   const navigate = useNavigate()
   let obj = {
@@ -28,10 +33,13 @@ const Navigation = () => {
   }
 
 
+
+
+
   return (
         <Navbar bg="dark" variant="dark" expand="lg">
           <Container fluid>
-            <Navbar.Brand href="#"><img width="100" src="https://images.ctfassets.net/y2ske730sjqp/1aONibCke6niZhgPxuiilC/2c401b05a07288746ddf3bd3943fbc76/BrandAssets_Logos_01-Wordmark.jpg?w=940" /></Navbar.Brand>
+            <Navbar.Brand href="/"><img width="100" src="https://images.ctfassets.net/y2ske730sjqp/1aONibCke6niZhgPxuiilC/2c401b05a07288746ddf3bd3943fbc76/BrandAssets_Logos_01-Wordmark.jpg?w=940" /></Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarScroll" />
             <Navbar.Collapse id="navbarScroll">
               <Nav
@@ -41,7 +49,7 @@ const Navigation = () => {
               >
                 <Link to="/" className='nav-item'>Home</Link>
                 <Link to="/movies" className='nav-item'>Movies</Link>
-                <Link to="/favorites" className='nav-item'>Favorites</Link>
+                <Link to="/favorites" className='nav-item'>Favorites {favoriteList.length>0?<span className='nav-numbering'>{favoriteList.length}</span>:<span></span>}</Link>
                 
               </Nav>
               <Form className="d-flex" onSubmit={goSearch}>

@@ -308,23 +308,23 @@ function getRecommendMovie(){
     }
 }
 
-function getFavoriteAdd(id){
+function getFavoriteAdd(favoriteObj){
     return (dispatch) => {
         dispatch({
             type: "GET_FAVORITE_ADD_SUCCESS",
             payload: { 
-                movieId:id
+                favoriteObj:favoriteObj
             }
         })
     }
 }
 
-function getFavoriteDelete(id){
+function getFavoriteDelete(movieId){
     return (dispatch) => {
         dispatch({
             type: "GET_FAVORITE_DELETE_SUCCESS",
             payload: { 
-                movieId:id
+                movieId:movieId
             }
         })
     }
